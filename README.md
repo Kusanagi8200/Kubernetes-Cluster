@@ -1,4 +1,12 @@
-# kubernetes + vagrant  Cluster Installation
+Kubernetes Cluster
+
+Installing Vagrant by downloading the file from the HashiCorp website and adding the repository to the list of package sources.
+Enabling bridged traffic for IPtables by adding a module and sysctl parameters.
+Installing CRI-O by adding a module and sysctl parameters, then adding the sources for the CRI-O repositories and installing the necessary packages.
+Installing Kubelet, Kubeadm, and Kubectl by adding the Kubernetes repositories to the list of package sources and installing the necessary packages.
+Initializing Kubeadm using the API server IP address, the pods network CIDR, and the node name, then configuring the kubelet to use the IP address and CIDR.
+Installing the Calico network plugin by applying the corresponding YAML file from GitHub.
+Deploying Nginx by applying a corresponding YAML file and configuring a NodePort service.
 
 --> VAGRANT INSTALLATION
 https://developer.hashicorp.com/vagrant/downloads
@@ -47,6 +55,7 @@ EOF
 
 modprobe overlay
 modprobe br_netfilter
+
 cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
