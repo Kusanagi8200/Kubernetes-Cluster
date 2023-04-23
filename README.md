@@ -25,6 +25,7 @@ cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
+
 modprobe overlay
 modprobe br_netfilter
 
@@ -99,6 +100,7 @@ cidr=$POD_CIDR --node-name $NODENAME
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
+
 kubectl get po -n kube-system
 kubectl get --raw='/readyz?verbose'
 kubectl cluster-info
@@ -111,8 +113,8 @@ kubeadm join 192.168.56.10:6443 --token XXXXXXXXXXXX \ --discovery-token-ca-cert
 kubectl get nodes
 
 --> DEPLOY NGINX
-kubectl apply -f - 
-Cf : deploy.
-Cf : nodeport.
+kubectl apply -f - file.yaml
+Cf : deploy.yaml
+Cf : nodeport.yalm
 
 kubectl describe deploy 
