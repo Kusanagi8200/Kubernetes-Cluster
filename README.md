@@ -116,7 +116,7 @@ kubectl get nodes
 --> DEPLOY NGINX
 kubectl apply -f - file.yaml
 Cf : deploy.yaml
-Cf : nodeport.yalm
+Cf : nodeport.yaml
 
 kubectl describe deploy 
 
