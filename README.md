@@ -1,4 +1,4 @@
-##KUBERNETES CLUSTER
+## KUBERNETES CLUSTER
 
 Installing Vagrant by downloading the file from the HashiCorp website and adding the repository to the list of package sources.
 Enabling bridged traffic for IPtables by adding a module and sysctl parameters.
@@ -8,7 +8,7 @@ Initializing Kubeadm using the API server IP address, the pods network CIDR, and
 Installing the Calico network plugin by applying the corresponding YAML file from GitHub.
 Deploying Nginx by applying a corresponding YAML file and configuring a NodePort service.
 
-##VAGRANT INSTALLATION
+## VAGRANT INSTALLATION
 
 https://developer.hashicorp.com/vagrant/downloads
 
@@ -21,7 +21,7 @@ apt update && apt install vagrant
 
 **Cf: Vagrantfile**
 
-##ENABLE IPTABLES BRIDGED TRAFFIC
+## ENABLE IPTABLES BRIDGED TRAFFIC
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
@@ -44,7 +44,7 @@ sysctl --system
 swapoff -a
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 
-##RUNTIME CRI-O
+## RUNTIME CRI-O
 
 cat <<EOF | sudo tee /etc/modules-load.d/crio.conf
 overlay
@@ -90,7 +90,7 @@ systemctl daemon-reload
 
 systemctl enable crio --now
 
-##INSTALL KUBEADM & KUBELET & KUBECTL
+## INSTALL KUBEADM & KUBELET & KUBECTL
 
 apt-get install -y apt-transport-https ca-certificates curl
 
@@ -124,7 +124,7 @@ kubectl get --raw='/readyz?verbose'
 
 kubectl cluster-info
 
-##INSTALL CALICO NETWORK PLUGIN
+## INSTALL CALICO NETWORK PLUGIN
 
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
 
@@ -134,7 +134,7 @@ kubeadm join 192.168.56.10:6443 --token XXXXXXXXXXXX \ --discovery-token-ca-cert
 
 kubectl get nodes
 
-##DEPLOY NGINX
+## DEPLOY NGINX
 
 kubectl apply -f - file.yaml
 
