@@ -9,7 +9,7 @@ Initializing Kubeadm using the API server IP address, the pods network CIDR, and
 Installing the Calico network plugin by applying the corresponding YAML file from GitHub.
 Deploying Nginx by applying a corresponding YAML file and configuring a NodePort service.
 
---> VAGRANT INSTALLATION
+VAGRANT INSTALLATION
 https://developer.hashicorp.com/vagrant/downloads
 
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -80,7 +80,7 @@ apt-get install cri-o cri-o-runc cri-tools -y
 systemctl daemon-reload
 systemctl enable crio --now
 
---> INSTALL KUBEADM & KUBELET & KUBECTL
+INSTALL KUBEADM & KUBELET & KUBECTL
 apt-get install -y apt-transport-https ca-certificates curl
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-
@@ -106,14 +106,14 @@ kubectl get po -n kube-system
 kubectl get --raw='/readyz?verbose'
 kubectl cluster-info
 
---> INSTALL CALICO NETWORK PLUGIN
+INSTALL CALICO NETWORK PLUGIN
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
 kubectl get po -n kube-system
 
 kubeadm join 192.168.56.10:6443 --token XXXXXXXXXXXX \ --discovery-token-ca-cert-hash sha256:XXXXXXXXXXXX
 kubectl get nodes
 
---> DEPLOY NGINX
+DEPLOY NGINX
 kubectl apply -f - file.yaml
 Cf : deploy.yaml
 Cf : nodeport.yaml
