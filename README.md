@@ -1,4 +1,3 @@
-
 Kubernetes Cluster
 
 Installing Vagrant by downloading the file from the HashiCorp website and adding the repository to the list of package sources.
@@ -119,4 +118,3 @@ Cf : deploy.yaml
 Cf : nodeport.yaml
 
 kubectl describe deploy 
-
