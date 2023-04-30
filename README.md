@@ -1,11 +1,17 @@
 ### KUBERNETES CLUSTER
 
 Installing Vagrant by downloading the file from the HashiCorp website and adding the repository to the list of package sources.
+
 Enabling bridged traffic for IPtables by adding a module and sysctl parameters.
+
 Installing CRI-O by adding a module and sysctl parameters, then adding the sources for the CRI-O repositories and installing the necessary packages.
+
 Installing Kubelet, Kubeadm, and Kubectl by adding the Kubernetes repositories to the list of package sources and installing the necessary packages.
+
 Initializing Kubeadm using the API server IP address, the pods network CIDR, and the node name, then configuring the kubelet to use the IP address and CIDR.
+
 Installing the Calico network plugin by applying the corresponding YAML file from GitHub.
+
 Deploying Nginx by applying a corresponding YAML file and configuring a NodePort service.
 
 
@@ -145,6 +151,7 @@ kubectl get nodes
 kubectl apply -f - file.yaml
 
 Cf : deploy.yaml
+
 Cf : nodeport.yaml
 
 kubectl describe deploy 
